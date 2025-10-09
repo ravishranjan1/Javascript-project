@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .btn{
+            margin: 10px 15px;
+            height: 30px;
+            width: 70px;
+            border-radius: 4px;
+        }
+        .div{
+            margin: 10px 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <div class="box">😒</div>
+        <button class="btn" onclick="change()">Change</button>
+    </div>
+    
+    <script>
+        const emojis = [
+            "😀","😁","😂","🤣","😃","😄","😅","😆","😉","😊",
+            "😋","😎","😍","😘","🥰","😗","😙","😚","🙂","🤗",
+            "🤩","🤔","🤨","😐","😑","😶","🙄","😏","😣","😥",
+            "😮","🤐","😯","😪","😫","🥱","😴","😌","😛","😜",
+            "🤪","😝","🤤","😒","😓","😔","😕","🙃","🤑","😲",
+            "☹️","🙁","😖","😞","😟","😤","😢","😭","😦","😧",
+            "😨","😩","🤯","😬","😰","😱","🥵","🥶","😳","🤪",
+            "😵","😡","😠","🤬","😷","🤒","🤕","🤢","🤮","🤧",
+            "😇","🥳","🥴","🥺","🤠","🤡","🤫","🤭","🧐","🤓",
+            "😈","👿","👻","💀","☠️","👽","👾","🤖","🎃","👹",
+            "👺","💩","🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼"
+        ];
+        function change(){
+            let random = Math.floor(Math.random()*emojis.length);
+            let box = document.querySelector('.box');
+            box.textContent = emojis[random];
+        }
+    </script>
+</body>
+</html>

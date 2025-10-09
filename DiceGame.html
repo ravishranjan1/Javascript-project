@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 400px;
+            width: 400px;
+            border: 2px solid black;
+            margin: 100px auto;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .dice{
+            display: flex;
+            gap: 50px;
+        }
+        .divs{
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .divs img{
+            height: 100%;
+            width: 100%;
+        }
+        button{
+            height: 40px;
+            width: 150px;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="dice">
+            <div class="divs"> <img class="i1" src="./Image/d1.png" alt=""></div>
+            <div class="divs"><img class="i2" src="./Image/d2.png" alt=""></div>
+        </div>
+        <div class="total divs"><h1>3</h1></div>
+        <button>Roll Dice</button>
+    </section>
+
+    <script>
+        let btn = document.querySelector('button')
+        let img1 = document.querySelector('.i1')
+        let img2 = document.querySelector('.i2')
+        btn.addEventListener('click', ()=>{
+            let s1 = Math.floor(Math.random()*6)+1;
+            let s2 = Math.floor(Math.random()*6)+1;
+            img1.src = `./Image/d${s1}.png`;
+
+            img2.src = `./Image/d${s2}.png`;
+
+            let total = document.querySelector('.total');
+            total.innerHTML = `<h1>${s1+s2}</h1>`;
+        })
+    </script>
+</body>
+</html>

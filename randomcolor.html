@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 300px;
+            width: 300px;
+            margin: 100px auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(3,1fr);
+            gap: 10px;
+            border-radius: 10px;
+        }
+        .divs{
+            border: 2px solid black;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+        <div class="divs"></div>
+    </section>
+    <script>
+        function randomColor(){
+            let r = Math.round(Math.random()*255);
+            let g = Math.round(Math.random()*255);
+            let b = Math.round(Math.random()*255);
+            return `rgb(${r},${g},${b})`
+        }
+        let allDiv = document.querySelectorAll('.divs')
+        allDiv.forEach(el => {
+            el.style.backgroundColor = randomColor();
+            el.addEventListener('click', () => {
+                el.style.backgroundColor = randomColor();
+            });
+        });
+        
+    </script>
+</body>
+</html>

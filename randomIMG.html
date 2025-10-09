@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+
+        }
+        img{
+            height: 70vh;
+            width: 80vw;
+
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <img src="" alt="">
+    <button>Change Images</button>
+    <script>
+        let btn = document.querySelector('button');
+        let img = document.querySelector('img');
+        let urls = [
+            'https://images.pexels.com/photos/269583/pexels-photo-269583.jpeg',
+            'https://images.pexels.com/photos/552779/pexels-photo-552779.jpeg',
+            'https://images.pexels.com/photos/2131801/pexels-photo-2131801.jpeg',
+            'https://images.pexels.com/photos/157776/girl-water-dawn-summer-157776.jpeg',
+            'https://images.pexels.com/photos/60217/pexels-photo-60217.jpeg',
+            'https://images.pexels.com/photos/3618162/pexels-photo-3618162.jpeg' 
+        ]
+        btn.addEventListener('click', ()=>{
+            let random = Math.floor(Math.random()*urls.length)
+            img.src = urls[random];
+        })
+    </script>
+</body>
+</html>

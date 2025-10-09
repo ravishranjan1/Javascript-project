@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .container{
+            height: 200px;
+            width: 300px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .content{
+            height: 400px;
+            width: 400px;
+            border:2px solid black;
+        }
+         .comment-box {
+            background: #f1f1f1;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        .comment-box b {
+            color: #333;
+        }
+         button{
+            height: 40px;
+            width: 150px;
+            text-align: center;
+            background-color: rgb(204, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <form action="" class="form">
+            <input type="text" class="username" placeholder="username">
+            <br>
+            <br>
+            <input type="text" class="comment" placeholder="comment">
+            <br>
+            <br>
+            <button>Post</button>
+        </form>
+    </section>
+    <div class="content"></div>
+
+    <script>
+        let body = document.querySelector('body')
+        let form = document.querySelector('.form');
+        let username = document.querySelector('.username');
+        let comment = document.querySelector('.comment');
+        let content = document.querySelector('.content');
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+
+            if (username.value.trim() === "" || comment.value.trim() === "") {
+                alert("Please enter both name and comment!");
+                return;
+            }
+            const div = document.createElement('div');
+            div.classList.add('comment-box');
+            div.innerHTML = `<b>${username.value}:</b> ${comment.value}`;
+            content.appendChild(div);
+
+            username.value = "";
+            comment.value = "";
+
+        });
+
+        
+
+
+    </script>
+</body>
+</html>
