@@ -40,20 +40,28 @@
             border:2px solid black;
             border-radius: 30px;
             padding: 20px;
+            overflow-y: scroll;
+            
         }
-         .comment-box {
+        ::-webkit-scrollbar{
+                display: none;
+        }
+        .comment-box {
             background: #f1f1f1;
             padding: 8px;
             margin-bottom: 10px;
             border-radius: 6px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .comment-box b {
             color: #333;
         }
-         button{
+        button{
             height: 40px;
-            width: 150px;
+            width: 100px;
             text-align: center;
             background-color: rgb(204, 255, 0);
             border-radius: 20px;
@@ -64,6 +72,13 @@
             border: 2px solid black;
             border-radius: 20px; 
             text-align: center;       
+        }
+        .delete{
+            height: 30px;
+            width: 100px;
+            text-align: center;
+            background-color: bisque;
+            
         }
     </style>
 </head>
@@ -92,19 +107,24 @@
                 alert("Please enter both name and comment!");
                 return;
             }
-            const div = document.createElement('div');
+            let div = document.createElement('div');
             div.classList.add('comment-box');
-            div.innerHTML = `<b>${username.value}:</b> ${comment.value}`;
+            div.innerHTML = `<div><b>${username.value}:</b> ${comment.value}</div>`;
             content.appendChild(div);
 
             username.value = "";
             comment.value = "";
-
+            
+            let btn = document.createElement('button');
+            btn.innerHTML = `<b>Delete</b>`;
+            btn.classList.add('delete')
+            div.appendChild(btn)
         });
-
-        
-
-
+        content.addEventListener('click',(e)=>{
+            if(e.target.nodeName== 'BUTTON'){
+                e.target.parentElement.remove();
+            }
+        })
     </script>
 </body>
 </html>
