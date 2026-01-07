@@ -21,6 +21,7 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
+            background-color: aquamarine;
         }
         .dice{
             display: flex;
@@ -30,10 +31,17 @@
             height: 100px;
             width: 100px;
             border: 2px solid black;
-            
+            border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+        }
+        .total{
+            background-color: blanchedalmond;
+            font-size: 24px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-style: italic;
         }
         .divs img{
             height: 100%;
@@ -44,7 +52,7 @@
             width: 150px;
             font-size: 20px;
             text-align: center;
-            
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -70,8 +78,16 @@
             img2.src = `./Image/d${s2}.png`;
 
             let total = document.querySelector('.total');
+            total.style.backgroundColor = randomColor();
             total.innerHTML = `<h1>${s1+s2}</h1>`;
+            btn.style.backgroundColor = randomColor();
         })
+        function randomColor(){
+            let r = Math.round(Math.random()*255);
+            let g = Math.round(Math.random()*255);
+            let b = Math.round(Math.random()*255);
+            return `rgb(${r},${g},${b})`
+        }
     </script>
 </body>
 </html>
